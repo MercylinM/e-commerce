@@ -51,6 +51,10 @@ import Link from 'next/link';
 export default function Navbar() {
   return (
     <header className="bg-white shadow-sm w-full">
+      {/* Top Banner */}
+      <div className="bg-black text-white py-1 px-4 text-center text-sm">
+        Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+      </div>
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-black">Exclusive</h1>

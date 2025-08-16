@@ -1,7 +1,7 @@
 interface CategoryItemProps {
     icon: string;
     label: string;
-    active: number | string;
+    active: boolean;
 }
 
 const CategoryItem = ({icon, label, active}: CategoryItemProps) => {
