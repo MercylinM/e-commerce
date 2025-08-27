@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image";
-import Button from "../Button";
+import { Eye, Heart } from "lucide-react";
+import { useState } from "react";
 
 interface ProductCardProps {
   image: string;
@@ -12,7 +15,13 @@ interface ProductCardProps {
   buttonText?: string;
 }
 
-export default function ProductCard({ image, title, price, oldPrice,rating, reviews, discount, buttonText }: ProductCardProps) {
+type Product = ProductCardProps
+  
+
+export function ProductCard({ image, title, price, oldPrice,rating, reviews, discount, buttonText }: Product) {
+  const [liked, setLiked] = useState(false);
+  const [viewed, setViewed] = useState(false);
+
   const renderStars = (rating: number ) => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -43,15 +52,16 @@ export default function ProductCard({ image, title, price, oldPrice,rating, revi
       )}
       <div className="p-3">
         <div className="relative">
-          <Image src={image} alt={title} className="w-full h-48 object-cover" width={200} height={250} />
-          <div className="absolute top-2 right-2 flex space-x-1">
-            <button className="bg-white rounded-full p-1.5 shadow-sm">
-              <i className="far fa-heart text-gray-500"></i>
+          
+          <div className="absolute top-0 right-2 grid space-x-1">
+            <button className=" p-1.5">
+              <Heart className={`text-gray-500 ${liked ? " fill-red-500 text-red-500" : "fill-none"} w-4 h-4`} onClick={() => setLiked(!liked)} />
             </button>
-            <button className="bg-white rounded-full p-1.5 shadow-sm">
-              <i className="far fa-eye text-gray-500"></i>
+            <button className=" p-1.5 ">
+              <Eye className={`text-gray-500 ${viewed ? "fill-current" : "fill-none"} w-4 h-4`} onClick={() => setViewed(!viewed)} />
             </button>
           </div>
+          <Image src={image} alt={title} className="w-full h-48 object-contain" width={200} height={250} />
         </div>
         <div className="mt-3">
           <h3 className="font-medium text-sm">{title}</h3>
@@ -75,20 +85,7 @@ export default function ProductCard({ image, title, price, oldPrice,rating, revi
         </div>
       </div>
     </div>
-  //   <div className="border rounded-lg p-4 hover:shadow-lg transition">
-  //     <Image src={image} alt={title} className="w-full h-48 object-cover" width={200} height={250} />
-  //     <h3 className="mt-2 font-medium">{title}</h3>
-  //     <div className="flex items-center space-x-2">
-  //       <span className="text-red-500 font-bold">${price}</span>
-  //       {oldPrice && (
-  //         <span className="line-through text-gray-400">${oldPrice}</span>
-  //       )}
+)}
 
-  //       <Button />
 
-  //     </div>
-  //   </div>
-  // 
-);
-}
 
