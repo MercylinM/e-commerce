@@ -1,66 +1,65 @@
 "use client";
 
-import ProductCard from "@/app/shared-components/ProductCard";
+import { Button } from "@/app/shared-components/Button";
+import { ProductCard } from "@/app/shared-components/ProductCard";
 
-const products = [
-  {
-    name: "The north coat",
-    price: 260,
-    originalPrice: 360,
-    image: "/images/5.png",
-    reviews: 65,
-  },
-  {
-    name: "Gucci duffle bag",
-    price: 960,
-    originalPrice: 1160,
-    image: "/images/6.png",
-    reviews: 65,
-  },
-  {
-    name: "RGB liquid CPU cooler",
-    price: 160,
-    originalPrice: 170,
-    image: "/images/7.png",
-    imageClass: "",
-    reviews: 65,
-  },
-  {
-    name: "Small bookshelf",
-    price: 360,
-    image: "/images/8.png",
-    reviews: 65,
-  },
-];
 
 
 export default function BestSelling() {
   return (
-    <section className="container mx-auto py-8">
-      <div className="flex justify-between items-center mb-6">
-        <div className="relative group">
-          <div className="flex gap-4.5 mb-9">
-            <p className="border-red-500 bg-red-500 text-red-500 w-3.5 h-9 rounded-sm">.</p>
-            <p className="text-red-500 text-[16px] mt-1.5">This Month</p>
-          </div>
-          <h2 className="text-2xl font-semibold">Best Selling Products</h2>
-        </div>
-        <button className="border px-7.5 py-2.5 bg-red-500 rounded-sm text-white text-sm font-medium hover:underline">
-          View All
-        </button>
+    <section className="mb-16">
+      <div className="flex items-center gap-4 mb-6">
+        <div className="w-5 h-10 bg-brand-red rounded"></div>
+        <span className="text-brand-red font-semibold">This Month</span>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ml-12">
-        {products.map((product) => (
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-3xl font-bold">Best Selling Products</h2>
+        <Button className="bg-brand-red hover:bg-brand-red-hover text-white">
+          View All
+        </Button>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            name: "The north coat",
+            price: "260",
+            oldPrice: "360",
+            rating: 5,
+            reviews: 65,
+            image: "/images/5.png"
+          },
+          {
+            name: "Gucci duffle bag",
+            price: "960",
+            oldPrice: "1160",
+            rating: 4,
+            reviews: 65,
+            image: "/images/6.png"
+          },
+          {
+            name: "RGB liquid CPU Cooler",
+            price: "160",
+            oldPrice: "170",
+            rating: 4,
+            reviews: 65,
+            image: "/images/7.png"
+          },
+          {
+            name: "Small BookShelf",
+            price: "360",
+            rating: 5,
+            reviews: 65,
+            image: "/images/8.png"
+          }
+        ].map((product, i) => (
           <ProductCard
-            key={product.name}
+            key={i}
             image={product.image}
             title={product.name}
-            price={product.price.toFixed(2)}
-            oldPrice={product.price > 100 ? (product.price * 1.2).toFixed(2) : ""}
-            rating={4}
+            price={product.price}
+            oldPrice={product.oldPrice}
+            rating={product.rating}
             reviews={product.reviews}
-            discount={product.price > 100 ? "Sale" : ""}
-            buttonText={product.price > 100 ? "Buy Now" : "Add to Cart"}
           />
         ))}
       </div>

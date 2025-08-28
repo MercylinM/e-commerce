@@ -2,14 +2,19 @@
 
 
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function NewArrivals() {
  return (
-   <main className="bg-white flex items-center justify-center py-8 px-2">
-     <div className="grid grid-cols-2 gap-6 max-w-6xl w-full">
-     
-       <div className="relative rounded-lg overflow-hidden bg-black h-[640px]"> 
+   <section className="mb-16">
+     <div className="flex items-center gap-4 mb-6">
+       <div className="w-5 h-10 bg-brand-red rounded"></div>
+       <span className="text-brand-red font-semibold">Featured</span>
+     </div>
+     <h2 className="text-3xl font-bold mb-8">New Arrival</h2>
+     <div className="grid lg:grid-cols-4 gap-4">
+       <div className="lg:col-span-2 lg:row-span-2 bg-black text-white rounded-lg p-8 relative overflow-hidden">
          <Image
            src="/images/playstation.jpg"
            alt="PlayStation 5"
@@ -18,85 +23,67 @@ export default function NewArrivals() {
            className="z-0"
            priority
          />
-         <div className="absolute left-7 bottom-10 z-10 text-white">
-           <h2 className="text-2xl font-semibold mb-2">PlayStation 5</h2>
-           <p className="mb-5 text-base">
-             Black and White version of the PS5<br />coming out on sale.
-           </p>
-           <button className="border-b border-white text-white text-lg font-medium pb-1 hover:opacity-80">
+         <div className="absolute bottom-8 left-8">
+           <h3 className="text-2xl font-bold mb-2">PlayStation 5</h3>
+           <p className="text-gray-300 mb-4">Black and White version of the PS5 coming out on sale.</p>
+           <Link href="/products/playstation-5" className="text-white underline hover:no-underline">
              Shop Now
-           </button>
+           </Link>
          </div>
-         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-5" />
        </div>
-
-
-       <div className="flex flex-col gap-6 h-[640px]"> 
-    
-         <div className="relative rounded-lg overflow-hidden bg-black flex-1 min-h-[310px]">
-           <Image
-             src="/images/girl.jpg"
-             alt="Women's Collections"
-             layout="fill"
-             objectFit="cover"
-             className="z-0"
-             priority
-           />
-           <div className="absolute left-7 bottom-10 z-10 text-white">
-             <h2 className="text-2xl font-semibold mb-2">Women’s Collections</h2>
-             <p className="mb-5 text-base w-[280px]">
-               Featured woman collections that<br />give you another vibe.
-             </p>
-             <button className="border-b border-white text-white text-lg font-medium pb-1 hover:opacity-80">
-               Shop Now
-             </button>
-           </div>
-           <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/30 to-transparent z-5" />
+       <div className="lg:col-span-2 h-[300px] bg-black text-white rounded-lg p-8 relative overflow-hidden">
+         <Image
+           src="/images/girl.jpg"
+           alt="Women's Collections"
+           layout="fill"
+           objectFit="cover"
+           className="z-0"
+           priority
+         />
+         <div className="absolute bottom-8 left-8">
+           <h3 className="text-xl font-bold mb-2">Women&apos;s Collections</h3>
+           <p className="text-gray-300 mb-2">Featured woman collections that give you another vibe.</p>
+           <Link href="/collections/womens" className="text-white underline hover:no-underline">
+             Shop Now
+           </Link>
          </div>
-       
-         <div className="flex gap-6 flex-1 min-h-[310px]">
-       
-           <div className="relative rounded-lg overflow-hidden bg-black flex-1 min-w-0">
-             <Image
-               src="/images/speaker3.png"
-               alt="Speakers"
-               layout="fill"
-               objectFit="cover"
-               className="z-0"
-               priority
-             />
-             <div className="absolute left-7 bottom-10 z-10 text-white">
-               <h2 className="text-2xl font-semibold mb-2">Speakers</h2>
-               <p className="mb-5 text-base">Amazon wireless speakers</p>
-               <button className="border-b border-white text-white text-lg font-medium pb-1 hover:opacity-80">
-                 Shop Now
-               </button>
-             </div>
-             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-5" />
-           </div>
-        
-           <div className="relative rounded-lg overflow-hidden bg-black flex-1 min-w-0">
-             <Image
-               src="/images/gucci.png"
-               alt="Perfume"
-               layout="fill"
-               objectFit="cover"
-               className="z-0"
-               priority
-             />
-             <div className="absolute left-7 bottom-10 z-10 text-white">
-               <h2 className="text-2xl font-semibold mb-2">Perfume</h2>
-               <p className="mb-5 text-base">GUCCI INTENSE OUD EDP</p>
-               <button className="border-b border-white text-white text-lg font-medium pb-1 hover:opacity-80">
-                 Shop Now
-               </button>
-             </div>
-             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-5" />
-           </div>
+       </div>
+       <div className="bg-black h-[200px] text-white rounded-lg p-8 relative overflow-hidden">
+         <Image
+           src="/images/speaker3.png"
+           alt="Speakers"
+           layout="fill"
+           objectFit="cover"
+           className="z-0"
+           priority
+         />
+         <div className="absolute bottom-8 left-8">
+           <h3 className="text-lg font-bold mb-2">Speakers</h3>
+           <p className="text-gray-300 mb-2">Amazon wireless speakers</p>
+           <Link href="/products/speakers" className="text-white underline hover:no-underline">
+             Shop Now
+           </Link>
+         </div>
+       </div>
+       <div className="bg-black text-white rounded-lg p-8 relative overflow-hidden">
+         <Image
+           src="/images/gucci.png"
+           alt="Speakers"
+           layout="fill"
+           objectFit="cover"
+           className="z-0"
+           priority
+         />
+         <div className="absolute bottom-8 left-8">
+           <h3 className="text-lg font-bold mb-2">Perfume</h3>
+           <p className="text-gray-300 mb-2">GUCCI INTENSE OUD EDP</p>
+           <Link href="/products/perfume" className="text-white underline hover:no-underline">
+             Shop Now
+           </Link>
          </div>
        </div>
      </div>
-   </main>
+   </section>
  );
 }
 
